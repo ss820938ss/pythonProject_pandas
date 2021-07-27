@@ -62,6 +62,13 @@ print()
 
 scientist.to_excel('./save/savatest1.xls')
 scientist.to_excel('./save/savatest2.xlsx')
+
+df1 = pd.read_excel('./save/savatest1.xls')
+print(df1)
+print()
+
+df2 = pd.read_excel('./save/savatest2.xlsx')
+print(df2)
 print('---------------------------------------------------------')
 
 
