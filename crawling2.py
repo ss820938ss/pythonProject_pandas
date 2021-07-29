@@ -10,15 +10,22 @@ test = input('검색할 이름을 입력하세요 : ')
 
 path = 'C:/chromedriver_win32/chromedriver'
 driver = webdriver.Chrome(path)
-driver.get('https://www.google.com')
+# driver.get('https://www.google.com')  # 구글
+# driver.get('https://www.naver.com')  # 네이버
+driver.get('https://www.youtube.com')  # 유튜브
 
-time.sleep(1)
+# time.sleep(1)  # 구글, 네이버
+time.sleep(5)  # 유튜브
 
-element = driver.find_element_by_name('q')
+# element = driver.find_element_by_name('q')  # 구글
+# element = driver.find_element_by_name('query')  # 네이버
+element = driver.find_element_by_id('search')  # 유튜브
+time.sleep(5)  # 유튜브
 element.send_keys(test, Keys.ENTER)
+time.sleep(3)  # 유튜브
 
-image_link = driver.find_element_by_link_text('이미지')
-image_link.click()
+# image_link = driver.find_element_by_link_text('이미지')  # 구글, 네이버
+# image_link.click()  # 구글, 네이버
 
 time.sleep(1)
 # 네이버용
