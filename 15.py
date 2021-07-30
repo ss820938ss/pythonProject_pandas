@@ -25,15 +25,23 @@ element.send_keys(test, Keys.ENTER)
 # image_tag = driver.find_elements_by_tag_name('span > div > div > div > a > div > img')
 # num = 10,000,000
 # x = driver.find_elements_by_class_name('xLon9')
+
+# 이미지 상세창 접속
 time.sleep(5)
 driver.find_element_by_class_name('_2Mc8_').send_keys(Keys.ENTER)
 
-# 숫자 비교 후 출력 테스트
-# link = data.select_one('li.detail > a').attrs['href']
-link = driver.find_elements_by_css_selector('href')
-webpage = requests.get("https://unsplash.com/photos/" + link)
-soup = BeautifulSoup(webpage.content, "html.parser")
+# 조회수 찾아내기(안되고있음 ....너무안되고있음...주소전혀못찾고있음...)
+req = requests.get('https://unsplash.com/photos/{}')
+html = req.text
+soup = BeautifulSoup(html, 'html.parser')
 
+view = soup.select('')
+
+result = soup.find_all('td', 'title')
+for i in range(len(result)):
+    print('{:2} 위 : {}'.format(i + 1, result[i].get_text().strip()))
+
+# 이미지 상세창 닫기
 time.sleep(10)
 driver.find_element_by_xpath('/html/body/div[4]/div/div/div[1]/button').send_keys(Keys.ENTER)
 
